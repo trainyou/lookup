@@ -1,0 +1,8 @@
+FROM alpine
+WORKDIR /app
+COPY . .
+RUN apk add --no-cache python3 py3-pip py3-virtualenv openssl \
+&& python -m virtualenv env \
+#&& source /app/env/bin/activate \
+&& pip install -r requirements 
+CMD ["/app/startup.sh"]
